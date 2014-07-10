@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/environment'
+require_relative '../lib/playable'
+require_relative '../lib/ttt'
+require_relative '../lib/computer'
+require_relative '../lib/check_winner'
+require_relative '../lib/game'
+require_relative '../lib/human'
+require_relative '../lib/cli_runner'
+# Dir["../lib/*.rb"].each {|file| require file }
+
+TTT::CLIRunner.new.run
+
+Pry.start
