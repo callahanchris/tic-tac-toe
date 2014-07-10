@@ -5,7 +5,7 @@ module TTT
 
     include TTT
 
-    attr_accessor :game
+    attr_accessor :game, :board
 
     def board
       TTT::BOARD
@@ -54,7 +54,6 @@ module TTT
       pretty_board
 
       loop do
-        # binding.pry
         gameplay
         pretty_board
         if human_wins?
@@ -94,9 +93,11 @@ module TTT
     def gameplay
       if empty_spaces % 2 == 0
         puts "Computer's move:"
+        puts "Empty Spaces: #{empty_spaces}"
         game.computer.move
       else
         puts "Your move:"
+        puts "Empty Spaces: #{empty_spaces}"
         game.human.move
       end
     end

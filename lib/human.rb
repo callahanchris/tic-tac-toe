@@ -2,15 +2,16 @@ require_relative '../config/environment'
 
 module TTT
   class Human
-    include Playable
+
     include TTT
     extend TTT
+    
     attr_accessor :piece, :board, :opponent
 
-    # def get_input
-    #   human_move = gets.chomp.upcase
-    #   play.move space
-    # end
+    def initialize(piece, opponent)
+      self.piece = piece
+      self.opponent = opponent
+    end
 
     MOVES = {
       "UL" => {row: 0, col: 0},
