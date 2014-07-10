@@ -16,6 +16,10 @@ module TTT
       TTT::BOARD
     end
     
+    def update_board(row, col)
+      TTT::BOARD[row][col] = piece
+    end
+
     def move
       if empty_spaces > 7
         opening_move
@@ -37,7 +41,7 @@ module TTT
     end
 
     def center_square
-      TTT::BOARD[1][1]
+      board[1][1]
     end
 
     def center_open?
@@ -50,11 +54,11 @@ module TTT
 
     def corner_move
       row, col = corners.sample
-      TTT::BOARD[row][col] = piece
+      update_board(row, col)
     end
 
     def opening_move
-      center_open? ? TTT::BOARD[1][1] = piece : corner_move
+      center_open? ? update_board(1, 1) : corner_move
     end
 
     def comp_wins
@@ -73,6 +77,7 @@ module TTT
     end
 
     def diagonals
+      # [[0, 0], [1, 1], [2, 2]] ? ? ? 
       [
         [board[0][0], board[1][1], board[2][2]],
         [rotated_board[0][0], rotated_board[1][1], rotated_board[2][2]]
@@ -98,7 +103,6 @@ module TTT
     end
 
     def horiz_win(potential_wins = comp_wins)
-      # find the winning row, return the square
       two_in_a_row = potential_wins.detect do |pot_win|
         board.include?(pot_win)
       end
@@ -110,26 +114,26 @@ module TTT
 
         row = rotated_board.index(two_in_a_row)
         col = rotated_board[row].index(" ")
-        TTT::BOARD[col][row] = piece
+        update_board(row, col)
       else
         row = board.index(two_in_a_row)
         col = board[row].index(" ")
-        TTT::BOARD[row][col] = piece
+        update_board(row, col)
       end
     end
 
     def diag_win(potential_wins = comp_wins)
       if potential_wins.include?(diagonals[0])
         coor = diagonals[0].index(" ")
-        TTT::BOARD[coor][coor] = piece
+        update_board(coor, coor)
       else
         coor = diagonals[1].index(" ")
         if coor == 0
-          TTT::BOARD[2][coor] = piece
+          update_board(2, 0)
         elsif coor == 1
-          TTT::BOARD[coor][coor] = piece
+          update_board(1, 1)
         else
-          TTT::BOARD[coor][2] = piece
+          update_board(0, 2)
         end
       end
     end
@@ -147,7 +151,7 @@ module TTT
       col = rand(3)
       
       if board[row][col] == ' '
-        TTT::BOARD[row][col] = piece
+        update_board(row, col)
       else
         random_move
       end

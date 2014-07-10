@@ -16,7 +16,6 @@ module TTT
     end
 
     def intro_text
-      # puts "OK `#{game.human.piece}', here are the instructions:"
       puts 'When the cursor appears, enter your move according to the following table:'
       print_legal_moves
       puts "You go first!"
@@ -79,7 +78,6 @@ module TTT
       puts ' ' + board[1][0] + ' | ' + board[1][1] + ' | ' + board[1][2] 
       puts '------------'
       puts ' ' + board[2][0] + ' | ' + board[2][1] + ' | ' + board[2][2] 
-      # binding.pry
       puts ' '
     end
 

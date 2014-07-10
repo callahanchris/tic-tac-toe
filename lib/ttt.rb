@@ -6,19 +6,6 @@ module TTT
            [' ', ' ', ' '],
            [' ', ' ', ' ']]
 
-  # MOVES = {
-  #   "UL" => board[0][0],
-  #   "UC" => board[0][1],
-  #   "UR" => board[0][2],
-  #   "ML" => board[1][0],
-  #   "MC" => board[1][1],
-  #   "MR" => board[1][2],
-  #   "LL" => board[2][0],
-  #   "LC" => board[2][1],
-  #   "LR" => board[2][2]
-  # }
-
-
 
 end
 
