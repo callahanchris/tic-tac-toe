@@ -6,14 +6,13 @@ module TTT
            [' ', ' ', ' '],
            [' ', ' ', ' ']]
 
-end
+  def print_legal_moves
+    puts ' UL | UC | UR  '
+    puts '---------------'
+    puts ' ML | MC | MR  '
+    puts '---------------'
+    puts ' LL | LC | LR  '
+    puts ' '
+  end
 
-require_relative 'computer'
-require_relative 'opener'
-require_relative 'winner'
-require_relative 'blocker'
-require_relative 'random_mover'
-require_relative 'check_winner'
-require_relative 'game'
-require_relative 'human'
-require_relative 'cli_runner'
+end

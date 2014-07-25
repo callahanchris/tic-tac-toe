@@ -39,19 +39,10 @@ module TTT
       if legal_inputs.include?(input) && BOARD[moves[input][:row]][moves[input][:col]] == ' '
         BOARD[moves[input][:row]][moves[input][:col]] = piece
       else
-        helper_text
+        puts 'Please move in one of the following spaces: '
+        print_legal_moves
         move
       end
-    end
-
-    def helper_text
-      puts 'Please move in one of the following spaces: '
-      puts ' UL | UC | UR  '
-      puts '---------------'
-      puts ' ML | MC | MR  '
-      puts '---------------'
-      puts ' LL | LC | LR  '
-      puts ' '
     end
   end
 end

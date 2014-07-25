@@ -2,4 +2,4 @@
 
 require_relative '../config/environment'
 
-CLIRunner.new.run
+TTT::CLIRunner.new.run

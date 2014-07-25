@@ -2,7 +2,6 @@ require_relative '../config/environment'
 
 module TTT
   class CLIRunner
-
     include TTT
 
     attr_accessor :game, :board
@@ -16,7 +15,7 @@ module TTT
     end
 
     def intro_text
-      puts 'When the cursor appears, enter your move according to the following table:'
+      puts 'Enter your move according to the following table:'
       print_legal_moves
       puts "You go first!"
     end
@@ -37,15 +36,6 @@ module TTT
       else
         assign_pieces
       end
-    end
-
-    def print_legal_moves
-      puts ' UL | UC | UR  '
-      puts '---------------'
-      puts ' ML | MC | MR  '
-      puts '---------------'
-      puts ' LL | LC | LR  '
-      puts ' '
     end
 
     def run
@@ -93,11 +83,9 @@ module TTT
     def gameplay
       if empty_spaces % 2 == 0
         puts "Computer's move:"
-        puts "Empty Spaces: #{empty_spaces}"
         game.computer.move
       else
         puts "Your move:"
-        puts "Empty Spaces: #{empty_spaces}"
         game.human.move
       end
     end

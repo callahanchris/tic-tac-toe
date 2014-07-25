@@ -1,8 +1,6 @@
 require_relative '../config/environment'
 
 class RandomMover < TTT::Computer
-  attr_reader :piece
-
   def initialize(piece)
     @piece = piece
   end

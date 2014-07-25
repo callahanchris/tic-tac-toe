@@ -2,12 +2,10 @@ require_relative '../config/environment'
 
 module TTT
   class CheckWinner
-
-    attr_accessor :winner, :piece
-    attr_reader :board
+    attr_reader :board, :winner, :piece
 
     def initialize(piece)
-      self.piece = piece
+      @piece = piece
     end
 
     def board
@@ -19,7 +17,6 @@ module TTT
     end
 
     def rotated_board
-      # board = BOARD
       board.transpose.map(&:reverse)
     end
 
@@ -30,18 +27,6 @@ module TTT
 
     def winner?
       board.include?(wins) || rotated_board.include?(wins) || diag_wins?
-    end
-
-    def empty_board?
-      board.any?{|t| t == ' ' }
-    end
-
-    def game_over?
-      winner? || empty_board?
-    end
-
-    def winner
-      self.winner = piece if winner?
     end
   end
 end
